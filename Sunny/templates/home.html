@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to SanChi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      color: #333;
+    }
+
+    header {
+      background-color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      color: #4CAF50;
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #4CAF50;
+    }
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .hero a {
+      background: #4CAF50;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background 0.3s;
+    }
+
+    .hero a:hover {
+      background: #388e3c;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 60px 20px;
+      gap: 40px;
+    }
+
+    .feature-box {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      width: 280px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+    }
+
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+      .feature-box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SanChi</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/express">Express</a>
+    <a href="/matches">Matches</a>
+    <a href="/my_profile">Profile</a>
+    <a href="/login">Login</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Express. Connect. Discover.</h2>
+  <p>SanChi helps you connect with people who think, feel, and vibe like you. Share your thoughts and let the magic happen!</p>
+  <a href="/login">Get Started</a>
+</section>
+
+<section class="features">
+  <div class="feature-box">
+    <h3>🧠 Express Yourself</h3>
+    <p>Answer meaningful questions to reveal who you truly are.</p>
+  </div>
+  <div class="feature-box">
+    <h3>💫 Find Your Match</h3>
+    <p>We use your answers to match you with people like you.</p>
+  </div>
+  <div class="feature-box">
+    <h3>💬 Start Chatting</h3>
+    <p>Connect, chat, and bond over shared values and thoughts.</p>
+  </div>
+</section>
+
+<footer>
+  © Project done by Srihitha, Sanath Kumar and Sneha
+</footer>
+
+</body>
+</html>

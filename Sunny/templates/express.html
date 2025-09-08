@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Express Yourself</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='express.css') }}">
+</head>
+<body>
+    <div class="express-container">
+        <h2>Express Your Thoughts</h2>
+        <form method="POST">
+            <textarea name="thought" placeholder="What's on your mind today?" required></textarea>
+
+            <label for="mood">Mood:</label>
+            <select name="mood" id="mood">
+                <option value="happy">😊 Happy</option>
+                <option value="sad">😔 Sad</option>
+                <option value="excited">🤩 Excited</option>
+                <option value="angry">😠 Angry</option>
+                <option value="calm">😌 Calm</option>
+            </select>
+
+            <label>
+                <input type="checkbox" name="public" value="true">
+                Make this public
+            </label>
+
+            <button type="submit">Post</button>
+        </form>
+
+        {% if success %}
+            <p class="success-msg">Your thoughts have been saved 💬</p>
+        {% endif %}
+
+        <a href="/profile" class="back-link">← Back to Profile</a>
+    </div>
+</body>
+</html>

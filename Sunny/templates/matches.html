@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='express.css') }}">
+    <style>
+        @keyframes slideFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .match-box {
+            background-color: #ffffff;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            animation: slideFade 0.6s ease-out;
+        }
+
+        .match-box:hover {
+            transform: scale(1.02);
+        }
+
+        .match-info {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .no-match {
+            color: #999;
+            font-style: italic;
+            margin-top: 30px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .express-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="express-container">
+        <h1>Your Best Match</h1>
+
+        {% if match %}
+            <div class="match-box">
+                <div class="match-info"><strong>Name:</strong> {{ match.name }}</div>
+                <div class="match-info"><strong>Email:</strong> {{ match.email }}</div>
+                <div class="match-info"><strong>Similarity Score:</strong> {{ match.similarity }}%</div>
+            </div>
+            <div style="text-align: center;">
+                <a href="/chat/{{ match.email }}" class="button">Chat with {{ match.name }}</a>
+            </div>
+        {% else %}
+            <div class="no-match">
+                Sorry, we couldn’t find a match yet. Try again later!
+            </div>
+        {% endif %}
+
+        <a class="back-link" href="/q10">← Go Back</a>
+    </div>
+</body>
+</html>

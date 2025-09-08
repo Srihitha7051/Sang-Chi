@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Matches - SanChi</title>
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fef6f7;
+      color: #333;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff5e78;
+    }
+    .match-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧡 Your Past Matches</h1>
+
+  {% if matches %}
+    {% for match in matches %}
+      <div class="match-box">
+        <p><strong>Matched with:</strong> {{ match.matched_email }}</p>
+        <p><strong>Similarity Score:</strong> {{ (match.similarity_score * 100) | round(2) }}%</p>
+        <p><strong>Why matched?</strong> {{ match.explanation }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>You don’t have any matches yet.</p>
+  {% endif %}
+
+</body>
+</html>

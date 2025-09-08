@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Your Profile{% endblock %}
+{% block content %}
+    <h2 class="mb-3">Tell us about yourself</h2>
+    <form method="POST">
+        <textarea name="thoughts" class="form-control mb-2" placeholder="Your thoughts">{{ user.thoughts }}</textarea>
+        <textarea name="feelings" class="form-control mb-2" placeholder="Your feelings">{{ user.feelings }}</textarea>
+        <textarea name="interests" class="form-control mb-2" placeholder="Your interests">{{ user.interests }}</textarea>
+        <textarea name="habits" class="form-control mb-2" placeholder="Your habits">{{ user.habits }}</textarea>
+        <button type="submit" class="btn btn-success">Save & Find Matches</button>
+    </form>
+
+    <a href="/express" class="btn">Share Your Thoughts</a>
+
+{% endblock %}

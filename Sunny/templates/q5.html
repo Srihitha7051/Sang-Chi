@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question 5</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='express.css') }}">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #d9a7c7, #fffcdc);
+      margin: 0;
+      padding: 0;
+    }
+
+    .question-container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      animation: fadeSlideIn 0.8s ease;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideOut {
+      to {
+        opacity: 0;
+        transform: translateY(-60px);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: normal;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 25px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      resize: vertical;
+      min-height: 100px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background-color: #56f691;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question-container" id="questionBox">
+    <h2>What kind of people do you connect with easily?</h2>
+    <form method="POST" onsubmit="return animateExit()">
+      <textarea name="answer" placeholder="Write your answer here . . ." required></textarea>
+      <button type="submit">Next</button>
+    </form>
+    <a href="/" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    function animateExit() {
+      const box = document.getElementById("questionBox");
+      box.style.animation = "fadeSlideOut 0.6s ease forwards";
+      setTimeout(() => document.forms[0].submit(), 500);
+      return false;
+    }
+  </script>
+
+</body>
+</html>

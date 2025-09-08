@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question 2 - SanChi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 8px 10px;
+        font-size: 15px;
+      }
+
+      .main-content {
+        padding: 60px 15px;
+      }
+
+      .main-content h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+
+      select {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 16px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 24px;
+      }
+
+      .back-link {
+        font-size: 14px;
+        margin-top: 20px;
+      }
+
+      .circle1 {
+        width: 150px;
+        height: 150px;
+        top: 40px;
+        left: -40px;
+      }
+
+      .circle2 {
+        width: 200px;
+        height: 200px;
+        bottom: 60px;
+        right: -40px;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #fff0f3, #ffe6e6);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      color: #ff5e78;
+      margin: 0;
+      font-size: 26px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #ff5e78;
+    }
+
+    .main-content {
+      padding: 100px 20px;
+      text-align: center;
+      animation: fadeInUp 1s ease;
+    }
+
+    .main-content h2 {
+      font-size: 42px;
+      color: #222;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 18px;
+      border: 2px solid #ffb6c1;
+      background: #fff;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    select:hover {
+      transform: scale(1.03);
+      border-color: #ff5e78;
+    }
+
+    option {
+      padding: 10px;
+    }
+
+    button {
+      margin-top: 30px;
+      background: #ff5e78;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff3b61;
+      transform: scale(1.05);
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      color: #777;
+      font-size: 16px;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #222;
+      transform: scale(1.05);
+      text-decoration: underline;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    .circle1 {
+      top: 80px;
+      left: -60px;
+      width: 200px;
+      height: 200px;
+      background: #ffadc1;
+    }
+
+    .circle2 {
+      bottom: 100px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background: #ffcdd2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SanChi</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/express">Express</a>
+    <a href="/matches">Matches</a>
+    <a href="/my_profile">Profile</a>
+  </nav>
+</header>
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>g
+
+<section class="main-content" id="questionBox">
+  <h2>👉 What’s your usual reaction when you meet new people?</h2>
+  <form method="POST" onsubmit="return animateExit()">
+    <select name="answer" required>
+      <option value="">-- Select --</option>
+      <option value="Excited"> 😄 Excited</option>
+      <option value="Nervous"> 😬 Nervous</option>
+      <option value="Neutral"> 😐 Neutral</option>
+      <option value="Avoidant"> 🙈 Avoidant</option>
+    </select>
+    <br>
+    <button type="submit">Next →</button>
+  </form>
+  <a href="/" class="back-link">← Back to Home</a>
+</section>
+
+<script>
+  function animateExit() {
+    const box = document.getElementById("questionBox");
+    box.style.animation = "fadeSlideOut 0.6s ease forwards";
+    setTimeout(() => document.forms[0].submit(), 500);
+    return false;
+  }
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeSlideOut {
+      to {
+        opacity: 0;
+        transform: translateY(-60px);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>

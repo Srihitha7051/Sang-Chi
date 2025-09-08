@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile - SanChi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='express.css') }}">
+    <style>
+        .profile-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffffee;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .profile-container h1 {
+            text-align: center;
+            color: #333;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+        .profile-info p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .answers {
+            margin-top: 30px;
+        }
+        .answers h3 {
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .answers ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .answers li {
+            margin-bottom: 8px;
+            background-color: #f0f0f0;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="profile-container">
+    <h1>My Profile</h1>
+    <div class="profile-info">
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+
+    {% if answers %}
+    <div class="answers">
+        <h3>Your Answers</h3>
+        <ul>
+            {% for ans in answers %}
+                <li><strong>Q{{ ans.question_number }}:</strong> {{ ans.answer }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="back-link">
+        <a href="/matches">← Back to Matches</a>
+    </div>
+</div>
+</body>
+</html>
